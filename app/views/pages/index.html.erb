@@ -1,12 +1,2 @@
-<%= javascript_pack_tag 'hello_react' %>
-
-<%= form_with url: '#' do |form| %>
-  <div class='form-row'>
-    <%= form.label "What's Up?" %>
-    <%= form.text_field 'subject' %>
-  </div>
-  <div class='form-row'>
-    <%= form.label "Tell us more!" %>
-    <%= form.text_area 'body' %>
-  </div>
-<% end %>
+<%= javascript_pack_tag 'app' %>
+<div id='app'></div>
