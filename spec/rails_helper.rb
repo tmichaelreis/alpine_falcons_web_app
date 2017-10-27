@@ -54,4 +54,24 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  Capybara.register_driver :chrome do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: %w[headless disable-gpu] })
+    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+  end
+
+  Capybara.javascript_driver = :chrome
+
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver        = :chrome
+  end
+
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+  end
 end
