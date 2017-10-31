@@ -29,24 +29,48 @@ RSpec.describe 'Visit home page' do
     end
   end
 
+  describe 'form labels', js: true do
+    it 'should have subject label' do
+      expect(page).to have_text 'What can we do for you?'
+    end
+
+    it 'should have body label' do
+      expect(page).to have_text 'Tell us more'
+    end
+
+    it 'should have name label' do
+      expect(page).to have_text 'Your Name'
+    end
+
+    it 'should have email label' do
+      expect(page).to have_text 'How to reach you'
+    end
+  end
+
   describe 'email form completion' do
     before do
-      fill_in 'What can we do for you?', with: 'Need band for gig'
-      fill_in 'Tell us more', with: 'Band needed for performance on new years. You guys are the best.'
-      fill_in 'Your Name', with: 'Holden McGroin'
-      fill_in 'How to reach you', with: 'test@example.com'
+      fill_in 'subject', with: 'Need band for gig'
+      fill_in 'body', with: 'Band needed for performance on new years. You guys are the best.'
+      fill_in 'name', with: 'Holden McGroin'
+      fill_in 'email', with: 'test@example.com'
     end
 
     it 'should not allow email submission without user email address', js: true do
       fill_in 'How to reach you', with: ''
       click_on '#submit_contact'
-      expect(page).to have_content 'Please provide us with your contact information so we can respond to your request'
+      expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
+    end
+
+    it 'should not allow obviously invalid email addresses', js: true do
+      fill_in 'How to reach you', with: 'worthless_email'
+      click_on '#submit_contact'
+      expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
     end
 
     it 'should not allow email submission without email body', js: true do
       fill_in 'Tell us more', with: ''
       click_on '#submit_contact'
-      expect(page).to have_content 'Please tell us more about your request'
+      expect(page).to have_content 'Please tell us more about your request.'
     end
 
     it 'should allow email submission with required fields with success message', js: true do
