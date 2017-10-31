@@ -23,10 +23,6 @@ RSpec.describe 'Visit home page' do
     it 'should have watch link to vimeo', js: true do
       expect(page).to have_css("a[href='https://vimeo.com/user61592768']")
     end
-
-    it 'should have go forth link to email', js: true do
-      expect(page).to have_css("a[href=#{contacts_url}]")
-    end
   end
 
   describe 'form labels', js: true do
@@ -56,25 +52,22 @@ RSpec.describe 'Visit home page' do
     end
 
     it 'should not allow email submission without user email address', js: true do
-      fill_in 'How to reach you', with: ''
-      click_on '#submit_contact'
+      fill_in 'email', with: ''
       expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
     end
 
     it 'should not allow obviously invalid email addresses', js: true do
-      fill_in 'How to reach you', with: 'worthless_email'
-      click_on '#submit_contact'
+      fill_in 'email', with: 'worthless_email'
       expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
     end
 
     it 'should not allow email submission without email body', js: true do
-      fill_in 'Tell us more', with: ''
-      click_on '#submit_contact'
+      fill_in 'body', with: ''
       expect(page).to have_content 'Please tell us more about your request.'
     end
 
     it 'should allow email submission with required fields with success message', js: true do
-      click_on '#submit_contact'
+      click_on 'Submit'
       expect(page).to have_content 'Thanks for reaching out!'
     end
   end

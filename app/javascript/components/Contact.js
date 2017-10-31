@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormErrors } from './FormErrors'
+import $ from 'jquery';
 
 class Contact extends React.Component {
   constructor (props) {
@@ -63,6 +64,7 @@ class Contact extends React.Component {
   }
 
   submit(e) {
+    console.log(this);
     var self;
 
     e.preventDefault();
@@ -71,10 +73,12 @@ class Contact extends React.Component {
     console.log(this.state);
 
     var data = {
-      subject: this.state.subject,
-      body: this.state.body,
-      name: this.state.name,
-      email: this.state.email
+      contact: {
+        subject: this.state.subject,
+        body: this.state.body,
+        name: this.state.name,
+        email: this.state.email
+      }
     }
 
     // Submit form via jQuery/AJAX
@@ -89,20 +93,27 @@ class Contact extends React.Component {
     .fail(function(jqXhr) {
       console.log('failed to submit contact info');
     });
+
+    return false;
   }
 
   render() {
+    var csrfToken = $('meta[name=csrf-token]').attr('content');
+
     return (
-      <form className='component-contact_form' onSubmit={this.submit}>
+      <form className='component-contact_form' onSubmit={(e) => this.submit(e)}>
         <div className='error-container'>
           <FormErrors formErrors={this.state.formErrors} />
         </div>
+        <input type='hidden' name='_method' value='patch' />
+        <input type='hidden' name='utf8' value='✓' />
+        <input type='hidden' name='authenticity_token' value={csrfToken} />
         <div>
           <label htmlFor='subject'>What can we do for you?</label>
           <input type='text' className='form-control' name='subject'
             placeholder='Play my venue!'
             value={this.state.subject}
-           onChange={this.handleUserInput} />
+            onChange={this.handleUserInput} />
         </div>
         <div className={'form-group ${this.errorClass(this.state.formErrors.body)}'}>
           <label htmlFor='body'>Tell us more</label>
@@ -125,7 +136,7 @@ class Contact extends React.Component {
             value={this.state.email}
             onChange={this.handleUserInput}  />
         </div>
-        <button type='submit' className='btn btn-primary' disabled={!this.state.formValid}>Sign up</button>
+        <button type='submit' id='submit_contact' className='btn btn-primary' disabled={!this.state.formValid}>Submit</button>
       </form>
     );
   }
