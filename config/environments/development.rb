@@ -51,4 +51,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Use sidekiq for background jobs
+  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_name_prefix = "alpine_falcons_web_app_#{Rails.env}"
 end
