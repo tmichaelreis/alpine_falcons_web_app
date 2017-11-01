@@ -1,0 +1,25 @@
+h2 {
+  font-family: 'Arvo', Arial, sans-serif;
+  color: $text-gray;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  color: $text-gray;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  color: $text-gray;
+}
+
+label {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  color: $text-gray;
+}
+
+.error-explanation {
+  color: $error-red;
+}

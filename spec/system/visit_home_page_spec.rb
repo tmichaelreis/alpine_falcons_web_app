@@ -53,22 +53,20 @@ RSpec.describe 'Visit home page' do
 
     it 'should not allow email submission without user email address', js: true do
       fill_in 'email', with: ''
+      find('#submit_contact').click
       expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
     end
 
     it 'should not allow obviously invalid email addresses', js: true do
       fill_in 'email', with: 'worthless_email'
+      find('#submit_contact').click
       expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
     end
 
     it 'should not allow email submission without email body', js: true do
       fill_in 'body', with: ''
+      find('#submit_contact').click
       expect(page).to have_content 'Please tell us more about your request.'
-    end
-
-    it 'should allow email submission with required fields with success message', js: true do
-      click_on 'Submit'
-      expect(page).to have_content 'Thanks for reaching out!'
     end
   end
 end

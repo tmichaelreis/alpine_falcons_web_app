@@ -26,8 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   # Send email through letter opener
   config.action_mailer.delivery_method = :letter_opener
@@ -58,4 +58,7 @@ Rails.application.configure do
   # Use sidekiq for background jobs
   config.active_job.queue_adapter = :sidekiq
   config.active_job.queue_name_prefix = "alpine_falcons_web_app_#{Rails.env}"
+
+  # Webpack dev server
+  config.x.webpacker[:dev_server_host] = "http://127.0.0.1:8080"
 end

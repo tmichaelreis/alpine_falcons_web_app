@@ -1,0 +1,7 @@
+---
+:concurrency: 1
+:queues:
+  - default
+  - mailers
+  - alpine_falcons_web_app_development_default
+  - alpine_falcons_web_app_development_mailers

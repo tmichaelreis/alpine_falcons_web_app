@@ -3,7 +3,7 @@ import React from 'react';
 class Bio extends React.Component {
   render() {
     return (
-      <div className='component-bio'>
+      <div className='bio'>
         <h2>
           Oh hi there!
         </h2>

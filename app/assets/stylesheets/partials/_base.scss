@@ -1,0 +1,26 @@
+html {
+  background-color: $dark-blue;
+}
+
+input {
+  margin-top: 2px;
+  border: none;
+  padding: 5px;
+
+  &:focus {
+    box-shadow: 0 4px 15px -1px #666;
+    outline: none;
+  }
+}
+
+textarea {
+  margin-top: 2px;
+  resize: none;
+  border: none;
+  padding: 5px;
+
+  &:focus {
+    box-shadow: 0 4px 15px -1px #666;
+    outline: none;
+  }
+}
