@@ -25,5 +25,4 @@
 /public/packs-test
 /node_modules
 
-secrets.yml
 database.yml
