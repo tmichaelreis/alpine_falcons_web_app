@@ -1,4 +1,6 @@
 import React from 'react';
+import ListenCTA from 'images/ListenCTA';
+import WatchCTA from 'images/WatchCTA';
 
 class Bio extends React.Component {
   render() {
@@ -22,6 +24,22 @@ class Bio extends React.Component {
           With Alpine Falcons, no two shows are ever the same, save for two everlasting principles: bring
           quality music to good people, and share a few beers along the way.
         </p>
+
+        <div className='cta-container'>
+          <div className='left-cta cta-image'>
+            <a href='https://soundcloud.com/themfalcons' target='_blank'>
+              <img src={ListenCTA} />
+            </a>
+          </div>
+
+          <div className='right-cta cta-image'>
+            <a href='https://vimeo.com/user61592768' target='_blank'>
+              <img src={WatchCTA} />
+            </a>
+          </div>
+
+          <div className='clearfix'></div>
+        </div>
       </div>
     );
   }

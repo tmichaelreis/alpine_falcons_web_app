@@ -5,5 +5,13 @@
 
   img {
     width: 50%;
+
+    @media (max-width: 750px) {
+      width: 75%;
+    }
+
+    @media (max-width: 550px) {
+      width: 100%;
+    }
   }
 }
