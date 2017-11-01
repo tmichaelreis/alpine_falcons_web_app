@@ -42,31 +42,4 @@ RSpec.describe 'Visit home page' do
       expect(page).to have_text 'How to reach you'
     end
   end
-
-  describe 'email form completion' do
-    before do
-      fill_in 'subject', with: 'Need band for gig'
-      fill_in 'body', with: 'Band needed for performance on new years. You guys are the best.'
-      fill_in 'name', with: 'Holden McGroin'
-      fill_in 'email', with: 'test@example.com'
-    end
-
-    it 'should not allow email submission without user email address', js: true do
-      fill_in 'email', with: ''
-      find('#submit_contact').click
-      expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
-    end
-
-    it 'should not allow obviously invalid email addresses', js: true do
-      fill_in 'email', with: 'worthless_email'
-      find('#submit_contact').click
-      expect(page).to have_content 'Please provide us with valid contact information so we can respond to your request.'
-    end
-
-    it 'should not allow email submission without email body', js: true do
-      fill_in 'body', with: ''
-      find('#submit_contact').click
-      expect(page).to have_content 'Please tell us more about your request.'
-    end
-  end
 end
