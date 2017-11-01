@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from 'images/Logo'
+import Logo from 'images/Logo';
 
 class Hero extends React.Component {
   render() {

@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import Bio from './Bio';
 import Contact from './Contact';
+import Footer from './Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
         <Hero />
         <Bio />
         <Contact />
+        <Footer />
       </div>
     );
   }

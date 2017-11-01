@@ -1,0 +1,45 @@
+.footer {
+  padding: 2rem;
+
+  .email-link {
+    width: 50%;
+    display: inline-block;
+    text-decoration: none;
+    color: $background-light-gray;
+
+    &:hover, &:active {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 550px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .social-links {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+
+    .social-link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      img {
+        width: 30px;
+
+        &:hover, &:active {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    @media (max-width: 550px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

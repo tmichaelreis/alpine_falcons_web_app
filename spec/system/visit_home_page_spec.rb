@@ -65,7 +65,7 @@ RSpec.describe 'Visit home page' do
 
     it 'should not allow email submission without email body', js: true do
       fill_in 'body', with: ''
-      find('#submit_contact img').click
+      find('#submit_contact').click
       expect(page).to have_content 'Please tell us more about your request.'
     end
   end
