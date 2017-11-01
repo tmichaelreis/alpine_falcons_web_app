@@ -7,7 +7,7 @@ RSpec.describe 'Visit home page' do
 
   describe 'content' do
     it 'should display bio greeting', js: true do
-      expect(page).to have_text('Oh hi there!')
+      expect(page).to have_text('OH HI THERE!')
     end
 
     it 'should display bio subhead', js: true do
@@ -65,7 +65,7 @@ RSpec.describe 'Visit home page' do
 
     it 'should not allow email submission without email body', js: true do
       fill_in 'body', with: ''
-      find('#submit_contact').click
+      find('#submit_contact img').click
       expect(page).to have_content 'Please tell us more about your request.'
     end
   end
