@@ -5,3 +5,5 @@
   - mailers
   - alpine_falcons_web_app_development_default
   - alpine_falcons_web_app_development_mailers
+  - alpine_falcons_web_app_production_default
+  - alpine_falcons_web_app_production_mailers
