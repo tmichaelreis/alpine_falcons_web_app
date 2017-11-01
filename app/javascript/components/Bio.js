@@ -27,13 +27,13 @@ class Bio extends React.Component {
 
         <div className='cta-container'>
           <div className='left-cta cta-image'>
-            <a href='https://soundcloud.com/themfalcons' target='_blank'>
+            <a href='https://soundcloud.com/alpinefalcons' target='_blank'>
               <img src={ListenCTA} />
             </a>
           </div>
 
           <div className='right-cta cta-image'>
-            <a href='https://vimeo.com/user61592768' target='_blank'>
+            <a href='https://www.youtube.com/channel/UCGpn5q7VsMUNDaF8uQvlvCg/videos' target='_blank'>
               <img src={WatchCTA} />
             </a>
           </div>

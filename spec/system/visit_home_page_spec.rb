@@ -17,11 +17,11 @@ RSpec.describe 'Visit home page' do
 
   describe 'CTA links' do
     it 'should have listen link to soundcloud', js: true do
-      expect(page).to have_css("a[href='https://soundcloud.com/themfalcons']")
+      expect(page).to have_css("a[href='https://soundcloud.com/alpinefalcons']")
     end
 
     it 'should have watch link to vimeo', js: true do
-      expect(page).to have_css("a[href='https://vimeo.com/user61592768']")
+      expect(page).to have_css("a[href='https://www.youtube.com/channel/UCGpn5q7VsMUNDaF8uQvlvCg/videos']")
     end
   end
 
